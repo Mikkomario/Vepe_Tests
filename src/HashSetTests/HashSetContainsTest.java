@@ -1,3 +1,5 @@
+package HashSetTests;
+
 
 /**
  * This class tests the speed of HashSet's contains -method.

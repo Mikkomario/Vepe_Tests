@@ -1,4 +1,7 @@
+package MainClasses;
 import java.util.ArrayList;
+
+import HashSetTests.HashSetContainsTest;
 
 
 /**

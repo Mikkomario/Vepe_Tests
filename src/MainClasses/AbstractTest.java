@@ -1,3 +1,4 @@
+package MainClasses;
 
 /**
  * This is the main testing class that each test extends. The test runs a 

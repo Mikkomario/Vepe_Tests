@@ -1,4 +1,8 @@
+package HashSetTests;
+
 import java.util.HashSet;
+
+import MainClasses.AbstractTest;
 
 
 /**
