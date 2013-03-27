@@ -40,9 +40,9 @@ public abstract class AbstractTest
 	
 	// This method increases the number of instances in the data structure 
 	// by a certain amount
-	private void addInstances(long instancesadded)
+	private void addInstances(int instancesadded)
 	{
-		long i = 0;
+		int i = 0;
 		
 		while (i < instancesadded)
 		{
@@ -52,7 +52,7 @@ public abstract class AbstractTest
 	}
 	
 	// Prints the collected data to the system console
-	private void printData(long instancecount, long nanoseconds)
+	private void printData(int instancecount, long nanoseconds)
 	{
 		System.out.println(instancecount + "#" + nanoseconds);
 	}
@@ -66,10 +66,10 @@ public abstract class AbstractTest
 	 * @param maxiterates How many times the method will be run?
 	 * 
 	 */
-	public void runTest(long startinstancecount, int maxiterates)
+	public void runTest(int startinstancecount, int maxiterates)
 	{
 		// Prepares the variables
-		long currentinstances = startinstancecount;
+		int currentinstances = startinstancecount;
 		int iterates = 0;
 		
 		// I initialize the variables here already so that the memory 
@@ -82,11 +82,11 @@ public abstract class AbstractTest
 		addInstances(currentinstances);
 		
 		// Informs the user with a message
-		System.out.println("Starting a new test with " + 
-				maxiterates + " iterates\n");
+		System.out.println("Starting the test\n" + getTestName() + " with " + 
+				maxiterates + " iterations\n");
 		
 		// Also collecs suplemental data about the total time used in the test
-		long starttime = System.nanoTime();
+		long starttime = System.currentTimeMillis();
 		long totaltime;
 		long totaltestingtime = 0;
 		
@@ -113,11 +113,11 @@ public abstract class AbstractTest
 			currentinstances *= 2;
 		}
 		
-		totaltime = System.nanoTime() - starttime;
+		totaltime = System.currentTimeMillis() - starttime;
 		
 		// Prints a final summary about the test
-		System.out.println("\n The test was successfully finished!");
-		System.out.println("The process took " + totaltime + " nanoseconds.");
+		System.out.println("\nThe test was successfully finished!");
+		System.out.println("The process took " + totaltime + " milliseconds.");
 		System.out.println("The tests took " + 
 				totaltestingtime + " nanoseconds in total.");
 	}

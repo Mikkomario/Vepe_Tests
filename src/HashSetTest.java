@@ -6,7 +6,7 @@ import java.util.HashSet;
  * data structure. This class handles the initialization of the data structure 
  * and adding new instances to the structure.
  * 
- * The hashset contains instances that are type long. they start from 1 and 
+ * The hashset contains instances that are type integer. they start from 1 and 
  * encrease by one with each new instance in the structure.
  *
  * @author Gandalf.
@@ -16,8 +16,8 @@ public abstract class HashSetTest extends AbstractTest
 {
 	// ATTRIBUTES	------------------------------------------------------
 	
-	private HashSet<Long> datastructure;
-	private long instancecount;
+	private HashSet<Integer> datastructure;
+	private int instancecount;
 	
 	
 	// CONSTRUCTOR	------------------------------------------------------
@@ -28,7 +28,7 @@ public abstract class HashSetTest extends AbstractTest
 	public HashSetTest()
 	{
 		// Initializes the attribute(s)
-		this.datastructure = new HashSet<Long>();
+		this.datastructure = new HashSet<Integer>();
 		this.instancecount = 0;
 	}
 	
@@ -48,7 +48,7 @@ public abstract class HashSetTest extends AbstractTest
 	/**
 	 * @return The data structure used in the test
 	 */
-	public HashSet<Long> getSet()
+	public HashSet<Integer> getSet()
 	{
 		return this.datastructure;
 	}

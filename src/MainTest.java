@@ -12,7 +12,7 @@ public class MainTest
 	// ATTRIBUTES	-------------------------------------------------------
 	
 	private ArrayList<AbstractTest> tests;
-	private long startinstancecount;
+	private int startinstancecount;
 	private int maxiterates;
 	
 	
@@ -25,7 +25,7 @@ public class MainTest
 	 * in the beginning of the test?
 	 * @param maxiterates How many a method is called in a single test?
 	 */
-	public MainTest(long startinstancecount, int maxiterates)
+	public MainTest(int startinstancecount, int maxiterates)
 	{
 		// Initializes the attributes
 		this.tests = new ArrayList<AbstractTest>();
@@ -69,41 +69,49 @@ public class MainTest
 	 * 1) Two arguments:<br>
 	 * - 1: How many instances does a data structure have in the beginning of a 
 	 * test<br>
-	 * - 2: How many times a tested method is called in a single test<br>
+	 * - 2: How many times a tested method is called in a single test 
+	 * (no more than 25 is recommended)<br>
 	 * 2) One argument:<br>
-	 * - 1: How many times a tested method is called in a single test<p>
+	 * - 1: How many times a tested method is called in a single test 
+	 * (no more than 25 is recommended)<p>
 	 * 
 	 * These arguments should be given in the long and / or integer formats
 	 */
 	public static void main(String[] args)
 	{
-		long startinstancecount = 1;
-		int maxiterates = 100;
+		/*
+		System.out.println(args.length);
+		if (args.length == 3)
+		System.out.println(args[1] + " " + args[2]);
+		*/
+		
+		int startinstancecount = 1;
+		int maxiterates = 20;
 		
 		// Updates the values with the arguments given with the 
 		// method call (if any)
-		if (args.length > 1)
+		if (args.length > 0)
 		{
-			long arg1 = 0;
+			int arg1 = 0;
 			
 			try
 			{
-				arg1 = Long.parseLong(args[1]);
+				arg1 = Integer.parseInt(args[0]);
 			}
 			catch (NumberFormatException nfe)
 			{
-				System.err.println("Please give the first argument as a long");
+				System.err.println("Please give the first argument as an integer");
 				System.exit(-1);
 			}
 			
 			// Normally the arguments are startcount and maxiterations
-			if (args.length > 2)
+			if (args.length > 1)
 			{
 			int arg2 = 0;
 				
 				try
 				{
-					arg2 = Integer.parseInt(args[2]);
+					arg2 = Integer.parseInt(args[1]);
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -119,7 +127,7 @@ public class MainTest
 			// When only one argument is present, it is considered maxiterations
 			else
 			{
-				maxiterates = (int) arg1;
+				maxiterates = arg1;
 			}
 		}
 		
