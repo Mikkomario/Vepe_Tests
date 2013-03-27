@@ -70,7 +70,8 @@ public abstract class AbstractTest
 	{
 		// Prepares the variables
 		int currentinstances = startinstancecount;
-		int iterates = 0;
+		int iterations = 0;
+		boolean testrun = true;
 		
 		// I initialize the variables here already so that the memory 
 		// allocation doesn't affect the recorded time
@@ -90,8 +91,11 @@ public abstract class AbstractTest
 		long totaltime;
 		long totaltestingtime = 0;
 		
-		// Iterates and prints the collected data
-		while (iterates < maxiterates)
+		// Iterates and prints the collected data.
+		// The first iteration is a test 
+		// run that isn't recorded (it seems that Java needs to run the method 
+		// once before it starts to work fast enough)
+		while (iterations < maxiterates)
 		{
 			// Prepares for testing
 			prepareTest();
@@ -100,17 +104,34 @@ public abstract class AbstractTest
 			startnanos = System.nanoTime();
 			runMethod();
 			runtime = System.nanoTime() - startnanos;
+			
+			// The following parts are not made during the test run
+			if (testrun)
+			{
+				testrun = false;
+				continue;
+			}
+			
 			totaltestingtime += runtime;
 			
 			// Prints the collected data
 			printData(currentinstances, runtime);
 			
 			// Prepares fo the next iteration
-			iterates ++;
+			iterations ++;
 			
 			// Doubles the number of instances in the structure
-			addInstances(currentinstances);
-			currentinstances *= 2;
+			// (adds one if there are currently 0 instances)
+			if (currentinstances != 0)
+			{
+				addInstances(currentinstances);
+				currentinstances *= 2;
+			}
+			else
+			{
+				addInstances(1);
+				currentinstances = 1;
+			}
 		}
 		
 		totaltime = System.currentTimeMillis() - starttime;
