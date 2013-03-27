@@ -30,6 +30,11 @@ public abstract class AbstractTest
 	 */
 	public abstract void runMethod();
 	
+	/**
+	 * @return What method in which datastructure is studied in this test?
+	 */
+	public abstract String getTestName();
+	
 	
 	// OTHER METHODS	---------------------------------------------------
 	
