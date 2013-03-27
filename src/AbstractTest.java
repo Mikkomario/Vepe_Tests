@@ -8,4 +8,5 @@
 public class AbstractTest
 {
 	// This will be the abstract testclass
+	//moi mikko. en tykkŠŠ komentorivistŠ.
 }
