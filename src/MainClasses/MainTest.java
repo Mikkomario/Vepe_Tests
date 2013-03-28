@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
+import HashSetTests.HashSetRemoveTest;
 
 
 /**
@@ -36,10 +37,11 @@ public class MainTest
 		this.startinstancecount = startinstancecount;
 		this.maxiterates = maxiterates;
 		
-		// Adds necessary tests
+		// Adds the necessary tests
 		// TODO: Add your tests here!
 		addTest(new HashSetContainsTest());
 		addTest(new HashSetAddTest());
+		addTest(new HashSetRemoveTest());
 	}
 	
 	
