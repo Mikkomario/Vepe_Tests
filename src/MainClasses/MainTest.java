@@ -1,6 +1,7 @@
 package MainClasses;
 import java.util.ArrayList;
 
+import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 
 
@@ -38,6 +39,7 @@ public class MainTest
 		// Adds necessary tests
 		// TODO: Add your tests here!
 		addTest(new HashSetContainsTest());
+		addTest(new HashSetAddTest());
 	}
 	
 	
