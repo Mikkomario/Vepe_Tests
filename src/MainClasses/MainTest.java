@@ -1,6 +1,7 @@
 package MainClasses;
 import java.util.ArrayList;
 
+import HashMapTests.HashMapConstainsKeyTest;
 import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 import HashSetTests.HashSetRemoveTest;
@@ -44,6 +45,8 @@ public class MainTest
 		addTest(new HashSetAddTest());
 		addTest(new HashSetRemoveTest());
 		addTest(new HashSetSizeTest());
+		
+		addTest(new HashMapConstainsKeyTest());
 	}
 	
 	
