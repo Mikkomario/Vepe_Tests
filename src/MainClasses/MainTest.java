@@ -3,8 +3,10 @@ import java.util.ArrayList;
 
 import HashMapTests.HashMapConstainsKeyTest;
 import HashMapTests.HashMapContainsValueTest;
+import HashMapTests.HashMapGetTest;
 import HashMapTests.HashMapPutTest;
 import HashMapTests.HashMapRemoveTest;
+import HashMapTests.HashMapSizeTest;
 import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 import HashSetTests.HashSetRemoveTest;
@@ -53,6 +55,8 @@ public class MainTest
 		addTest(new HashMapContainsValueTest());
 		addTest(new HashMapPutTest());
 		addTest(new HashMapRemoveTest());
+		addTest(new HashMapSizeTest());
+		addTest(new HashMapGetTest());
 	}
 	
 	
