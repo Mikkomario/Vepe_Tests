@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 import HashSetTests.HashSetRemoveTest;
+import HashSetTests.HashSetSizeTest;
 
 
 /**
@@ -42,6 +43,7 @@ public class MainTest
 		addTest(new HashSetContainsTest());
 		addTest(new HashSetAddTest());
 		addTest(new HashSetRemoveTest());
+		addTest(new HashSetSizeTest());
 	}
 	
 	
