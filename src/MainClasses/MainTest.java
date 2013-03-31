@@ -2,6 +2,7 @@ package MainClasses;
 import java.util.ArrayList;
 
 import HashMapTests.HashMapConstainsKeyTest;
+import HashMapTests.HashMapContainsValueTest;
 import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 import HashSetTests.HashSetRemoveTest;
@@ -47,6 +48,7 @@ public class MainTest
 		addTest(new HashSetSizeTest());
 		
 		addTest(new HashMapConstainsKeyTest());
+		addTest(new HashMapContainsValueTest());
 	}
 	
 	
