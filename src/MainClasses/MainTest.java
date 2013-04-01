@@ -17,6 +17,12 @@ import HashSetTests.HashSetAddTest;
 import HashSetTests.HashSetContainsTest;
 import HashSetTests.HashSetRemoveTest;
 import HashSetTests.HashSetSizeTest;
+import LinkedListTests.LinkedListAddtest;
+import LinkedListTests.LinkedListContainsTest;
+import LinkedListTests.LinkedListGetTest;
+import LinkedListTests.LinkedListIndexOfTest;
+import LinkedListTests.LinkedListRemoveTest;
+import LinkedListTests.LinkedListSizeTest;
 
 
 /**
@@ -70,6 +76,13 @@ public class MainTest
 		addTest(new ArrayListContainsTest());
 		addTest(new ArrayListSizeTest());
 		addTest(new ArrayListIndexOfTest());
+		
+		addTest(new LinkedListAddtest());
+		addTest(new LinkedListContainsTest());
+		addTest(new LinkedListGetTest());
+		addTest(new LinkedListIndexOfTest());
+		addTest(new LinkedListRemoveTest());
+		addTest(new LinkedListSizeTest());
 	}
 	
 	

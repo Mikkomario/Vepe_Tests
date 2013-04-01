@@ -1,6 +1,5 @@
 package LinkedListTests;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import MainClasses.AbstractTest;
@@ -18,11 +17,11 @@ import MainClasses.AbstractTest;
  */
 public abstract class LinkedListTest extends AbstractTest{
 	
-	private LinkedList datastructure;
+	private LinkedList<Integer> datastructure;
 	private int instanceaccount;
 	
 	public LinkedListTest(){
-		this.datastructure = new LinkedList();
+		this.datastructure = new LinkedList<Integer>();
 		this.instanceaccount = 0;
 	}
 	
@@ -38,7 +37,7 @@ public abstract class LinkedListTest extends AbstractTest{
 		/**
 		 * @return The data structure used in the test
 		 */
-		public LinkedList getLinkedList()
+		public LinkedList<Integer> getLinkedList()
 		{
 			return this.datastructure;
 		}
