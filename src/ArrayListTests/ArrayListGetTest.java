@@ -16,7 +16,8 @@ public class ArrayListGetTest extends ArrayListTest{
 
 	@Override
 	public void runMethod() {
-		getArrayList().get(-1);
+		// I'm not sure it's ok to get 0:th instance but I'll do it anyway (Gandalf)
+		getArrayList().get(0);
 		
 	}
 

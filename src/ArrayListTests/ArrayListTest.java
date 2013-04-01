@@ -33,17 +33,18 @@ public abstract class ArrayListTest extends AbstractTest{
 
 	//Abstract methods
 	@Override
-	public void addInstance() {
+	public void addInstance()
+	{
 		this.instanceaccount++;
-		getArrayList().add(this.instanceaccount);
-		
+		getArrayList().add(this.instanceaccount);	
 	}
 
 	//Getters & setters
 	/**
 	 * @return The data structure used in the test
 	 */
-	public ArrayList<Integer> getArrayList(){
+	public ArrayList<Integer> getArrayList()
+	{
 		return this.datastructure;
 	}
 	

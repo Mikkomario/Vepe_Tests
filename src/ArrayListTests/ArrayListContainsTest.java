@@ -9,15 +9,15 @@ package ArrayListTests;
 public class ArrayListContainsTest extends ArrayListTest{
 
 	@Override
-	public void prepareTest() {
+	public void prepareTest()
+	{
 		// Not needed
-		
 	}
 
 	@Override
-	public void runMethod() {
+	public void runMethod()
+	{
 		getArrayList().contains(-1);
-		
 	}
 
 	@Override

@@ -8,15 +8,15 @@ package ArrayListTests;
 public class ArrayListSizeTest extends ArrayListTest{
 
 	@Override
-	public void prepareTest() {
+	public void prepareTest()
+	{
 		// Not needed
-		
 	}
 
 	@Override
-	public void runMethod() {
+	public void runMethod()
+	{
 		getArrayList().size();
-		
 	}
 
 	@Override

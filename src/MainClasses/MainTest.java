@@ -1,6 +1,11 @@
 package MainClasses;
 import java.util.ArrayList;
 
+import ArrayListTests.ArrayListAddTest;
+import ArrayListTests.ArrayListContainsTest;
+import ArrayListTests.ArrayListGetTest;
+import ArrayListTests.ArrayListRemoveTest;
+import ArrayListTests.ArrayListSizeTest;
 import HashMapTests.HashMapConstainsKeyTest;
 import HashMapTests.HashMapContainsValueTest;
 import HashMapTests.HashMapGetTest;
@@ -57,6 +62,12 @@ public class MainTest
 		addTest(new HashMapRemoveTest());
 		addTest(new HashMapSizeTest());
 		addTest(new HashMapGetTest());
+		
+		addTest(new ArrayListAddTest());
+		addTest(new ArrayListRemoveTest());
+		addTest(new ArrayListGetTest());
+		addTest(new ArrayListContainsTest());
+		addTest(new ArrayListSizeTest());
 	}
 	
 	
