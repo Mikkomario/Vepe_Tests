@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import ArrayListTests.ArrayListAddTest;
 import ArrayListTests.ArrayListContainsTest;
 import ArrayListTests.ArrayListGetTest;
+import ArrayListTests.ArrayListIndexOfTest;
 import ArrayListTests.ArrayListRemoveTest;
 import ArrayListTests.ArrayListSizeTest;
 import HashMapTests.HashMapConstainsKeyTest;
@@ -68,6 +69,7 @@ public class MainTest
 		addTest(new ArrayListGetTest());
 		addTest(new ArrayListContainsTest());
 		addTest(new ArrayListSizeTest());
+		addTest(new ArrayListIndexOfTest());
 	}
 	
 	
