@@ -1,5 +1,10 @@
 package LinkedListTests;
-
+/**
+ * This class test the get() -method in LinkedList
+ *
+ * @author Unto
+ *         Created 1.4.2013.
+ */
 public class LinkedListGetTest extends LinkedListTest{
 
 	@Override

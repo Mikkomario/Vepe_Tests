@@ -1,5 +1,10 @@
 package LinkedListTests;
-
+/**
+ * This class test the indexOf() -method in LinkedList
+ *
+ * @author Unto
+ *         Created 1.4.2013.
+ */
 public class LinkedListIndexOfTest extends LinkedListTest{
 
 	@Override

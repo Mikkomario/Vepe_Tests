@@ -1,5 +1,11 @@
 package LinkedListTests;
 
+/**
+ * This class test the add() -method in LinkedList
+ *
+ * @author Unto
+ *         Created 1.4.2013.
+ */
 public class LinkedListAddtest extends LinkedListTest{
 
 	@Override
