@@ -1,9 +1,10 @@
 package StackTests;
 
 /**
- * This method tests stack's Peek method
- * @author camillaojapalo
- *
+ * This method tests stack's peek method
+ * 
+ * @author Anna
+ *		Created 2.4.2013
  */
 public class StackPeekTest extends StackTest{
 

@@ -1,7 +1,7 @@
 package StackTests;
 
 /**
- * This class tests the stack method push
+ * This class tests the stack push method
  * 
  * @author Anna 
  * 	Created 2.4.2013
