@@ -14,7 +14,7 @@ public class StackGetTest extends StackTest{
 
 	@Override
 	public void runMethod(){
-		getStack().get(-1);
+		getStack().get(0);
 	}
 
 	@Override

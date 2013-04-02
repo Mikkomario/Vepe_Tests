@@ -26,6 +26,9 @@ import LinkedListTests.LinkedListSizeTest;
 import StackTests.StackAddTest;
 import StackTests.StackContainsTest;
 import StackTests.StackGetTest;
+import StackTests.StackPeekTest;
+import StackTests.StackPopTest;
+import StackTests.StackPushTest;
 import StackTests.StackRemoveTest;
 import StackTests.StackSizeTest;
 
@@ -94,7 +97,9 @@ public class MainTest
 		addTest(new StackGetTest());
 		addTest(new StackRemoveTest());
 		addTest(new StackSizeTest());
-
+		addTest(new StackPeekTest());
+		addTest(new StackPushTest());
+		addTest(new StackPopTest());
 	}
 	
 	
@@ -146,7 +151,7 @@ public class MainTest
 		*/
 		
 		int startinstancecount = 1;
-		int maxiterates = 20;
+		int maxiterates = 22;
 		
 		// Updates the values with the arguments given with the 
 		// method call (if any)

@@ -7,11 +7,14 @@ package StackTests;
  *         Created 2.4.2013.
  */
 public class StackAddTest extends StackTest{
+	
+	
+	
 	// IMPLEMENTED METHODS --------------------------------
 
 	@Override
 	public void prepareTest(){
-		getStack().remove(-100);	
+		getStack().remove(getStack().size() -1);
 	}
 
 	@Override
