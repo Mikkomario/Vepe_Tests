@@ -20,6 +20,9 @@ public abstract class LinkedListTest extends AbstractTest{
 	private LinkedList<Integer> datastructure;
 	private int instanceaccount;
 	
+	/**
+	 *Creates a new linkedlistTest
+	 */
 	public LinkedListTest(){
 		this.datastructure = new LinkedList<Integer>();
 		this.instanceaccount = 0;

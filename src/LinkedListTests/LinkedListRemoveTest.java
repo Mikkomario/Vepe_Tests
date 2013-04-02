@@ -5,18 +5,37 @@ package LinkedListTests;
  * @author Unto
  *         Created 1.4.2013.
  */
-public class LinkedListRemoveTest extends LinkedListTest{
-
+public class LinkedListRemoveTest extends LinkedListTest
+{
+	// ATTRIBUTES	------------------------------------------------------
+	
+	private int lastaddindex;
+	
+	
+	// CONSTRUCTOR	------------------------------------------------------
+	
+	/**
+	 * Creates a new ArrayListRemoveTest
+	 */
+	public LinkedListRemoveTest()
+	{
+		// Initializes the attribute(s)
+		this.lastaddindex = 0;
+	}
+	
+	
+	// IMPLEMENTED METHODS	----------------------------------------------
+	
 	@Override
 	public void prepareTest() {
 		// Adds an additional instance to be removed
-		getLinkedList().add(-100, 100);
-		
+		getLinkedList().add(-100);
+		this.lastaddindex = getLinkedList().size() - 1;
 	}
 
 	@Override
 	public void runMethod() {
-		getLinkedList().remove(-100);
+		getLinkedList().remove(this.lastaddindex);
 		
 	}
 
