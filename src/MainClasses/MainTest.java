@@ -23,6 +23,11 @@ import LinkedListTests.LinkedListGetTest;
 import LinkedListTests.LinkedListIndexOfTest;
 import LinkedListTests.LinkedListRemoveTest;
 import LinkedListTests.LinkedListSizeTest;
+import StackTests.StackAddTest;
+import StackTests.StackContainsTest;
+import StackTests.StackGetTest;
+import StackTests.StackRemoveTest;
+import StackTests.StackSizeTest;
 
 
 /**
@@ -83,6 +88,13 @@ public class MainTest
 		addTest(new LinkedListIndexOfTest());
 		addTest(new LinkedListRemoveTest());
 		addTest(new LinkedListSizeTest());
+		
+		addTest(new StackAddTest());
+		addTest(new StackContainsTest());
+		addTest(new StackGetTest());
+		addTest(new StackRemoveTest());
+		addTest(new StackSizeTest());
+
 	}
 	
 	
