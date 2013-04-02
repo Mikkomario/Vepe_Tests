@@ -3,6 +3,8 @@ import java.util.Stack;
 import MainClasses.AbstractTest;
 
 /**
+ * This class is the abstract superclass for all the classes that test the stack 
+ * datastructure
  * 
  * @author Anna
  * Created 2.4.2013
@@ -13,8 +15,10 @@ public abstract class StackTest extends AbstractTest{
 	private Stack<Integer> datastructure;
 	private int instanceaccount;
 		
-		
 	//Constructor
+	/**
+	 * Creates a new stackTest
+	 */
 	public StackTest(){
 		this.datastructure = new Stack<Integer>();
 		this.instanceaccount = 0;
@@ -24,10 +28,13 @@ public abstract class StackTest extends AbstractTest{
 	@Override
 	public void addInstance() {
 		this.instanceaccount++;
-		getStack().add(this.instanceaccount);
+		getStack().push(this.instanceaccount);
 	}
 
 	//Getters & setters
+	/**
+	 * @return The stack used in the tests
+	 */
 	public Stack<Integer> getStack(){
 		return this.datastructure;
 	}

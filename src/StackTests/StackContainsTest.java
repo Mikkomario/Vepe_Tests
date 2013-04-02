@@ -1,5 +1,11 @@
 package StackTests;
 
+/**
+ * This class tests the stack's contains method
+ *
+ * @author Anna.
+ *         Created 2.4.2013.
+ */
 public class StackContainsTest extends StackTest {
 	@Override 
 	public void prepareTest(){

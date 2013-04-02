@@ -1,5 +1,11 @@
 package StackTests;
 
+/**
+ * This class tests the stack's add method
+ *
+ * @author Anna.
+ *         Created 2.4.2013.
+ */
 public class StackAddTest extends StackTest{
 	// IMPLEMENTED METHODS --------------------------------
 

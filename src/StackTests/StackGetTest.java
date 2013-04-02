@@ -1,5 +1,11 @@
 package StackTests;
 
+/**
+ * This class tests the stack's method get
+ *
+ * @author Anna.
+ *         Created 2.4.2013.
+ */
 public class StackGetTest extends StackTest{
 	@Override
 	public void prepareTest(){
