@@ -64,10 +64,10 @@ public abstract class AbstractTest
 	 * 
 	 * @param startinstancecount How many instances should the data structure 
 	 * hold in the beginning of the test?
-	 * @param maxiterates How many times the method will be run?
+	 * @param maxiterations How many times the method will be run?
 	 * 
 	 */
-	public void runTest(int startinstancecount, int maxiterates)
+	public void runTest(int startinstancecount, int maxiterations)
 	{
 		// Prepares the variables
 		int currentinstances = startinstancecount;
@@ -85,7 +85,7 @@ public abstract class AbstractTest
 		
 		// Informs the user with a message
 		System.out.println("Starting the test\n" + getTestName() + " with " + 
-				maxiterates + " iterations\n");
+				maxiterations + " iterations\n");
 		
 		// Also collecs suplemental data about the total time used in the test
 		long starttime = System.currentTimeMillis();
@@ -96,7 +96,7 @@ public abstract class AbstractTest
 		// The first iteration is a test 
 		// run that isn't recorded (it seems that Java needs to run the method 
 		// once before it starts to work fast enough)
-		while (iterations < maxiterates)
+		while (iterations < maxiterations)
 		{
 			// Prepares for testing
 			prepareTest();

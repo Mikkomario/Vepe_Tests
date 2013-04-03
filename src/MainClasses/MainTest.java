@@ -45,7 +45,7 @@ public class MainTest
 	
 	private ArrayList<AbstractTest> tests;
 	private int startinstancecount;
-	private int maxiterates;
+	private int maxiterations;
 	
 	
 	// CONSTRUCTOR	-------------------------------------------------------
@@ -62,7 +62,7 @@ public class MainTest
 		// Initializes the attributes
 		this.tests = new ArrayList<AbstractTest>();
 		this.startinstancecount = startinstancecount;
-		this.maxiterates = maxiterates;
+		this.maxiterations = maxiterates;
 		
 		// Adds the necessary tests
 		// TODO: Add your tests here!
@@ -119,7 +119,7 @@ public class MainTest
 	{
 		for (AbstractTest test: this.tests)
 		{
-			test.runTest(this.startinstancecount, this.maxiterates);
+			test.runTest(this.startinstancecount, this.maxiterations);
 			System.out.println("--------------------------------------------");
 		}
 	}
