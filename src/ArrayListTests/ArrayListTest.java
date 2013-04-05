@@ -38,6 +38,12 @@ public abstract class ArrayListTest extends AbstractTest{
 		this.instanceaccount++;
 		getArrayList().add(this.instanceaccount);	
 	}
+	
+	@Override
+	public void clearStructure()
+	{
+		getArrayList().clear();
+	}
 
 	//Getters & setters
 	/**

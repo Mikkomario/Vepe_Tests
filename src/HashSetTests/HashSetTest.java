@@ -46,6 +46,12 @@ public abstract class HashSetTest extends AbstractTest
 		getSet().add(this.instancecount);
 	}
 	
+	@Override
+	public void clearStructure()
+	{
+		getSet().clear();
+	}
+	
 	
 	// GETTERS & SETTERS	----------------------------------------------
 	

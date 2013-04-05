@@ -18,6 +18,12 @@ public abstract class AbstractTest
 	public abstract void addInstance();
 	
 	/**
+	 * This mehod clears the whole datastructure, releasing memory for other 
+	 * processes
+	 */
+	public abstract void clearStructure();
+	
+	/**
 	 * In this method, the subclass can prepare the system so it's ready for 
 	 * the testing of the metho.
 	 * 
@@ -142,6 +148,9 @@ public abstract class AbstractTest
 		System.out.println("The process took " + totaltime + " milliseconds.");
 		System.out.println("The tests took " + 
 				totaltestingtime + " nanoseconds in total.");
+		
+		// Finally releases the memory used in the test's data structure
+		clearStructure();
 	}
 	
 	// What to do?

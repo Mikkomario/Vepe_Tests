@@ -25,10 +25,17 @@ public abstract class StackTest extends AbstractTest{
 	}
 
 	//Abstract methods
+	
 	@Override
 	public void addInstance() {
 		this.instanceaccount++;
 		getStack().push(this.instanceaccount);
+	}
+	
+	@Override
+	public void clearStructure()
+	{
+		getStack().clear();
 	}
 
 	//Getters & setters

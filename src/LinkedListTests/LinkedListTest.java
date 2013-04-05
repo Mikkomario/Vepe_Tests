@@ -29,21 +29,28 @@ public abstract class LinkedListTest extends AbstractTest{
 	}
 	
 	//Abstract methods
-		@Override
-		public void addInstance()
-		{
-			this.instanceaccount++;
-			getLinkedList().add(this.instanceaccount);	
-		}
+	
+	@Override
+	public void addInstance()
+	{
+		this.instanceaccount++;
+		getLinkedList().add(this.instanceaccount);	
+	}
+	
+	@Override
+	public void clearStructure()
+	{
+		getLinkedList().clear();
+	}
 
-		//Getters & setters
-		/**
-		 * @return The data structure used in the test
-		 */
-		public LinkedList<Integer> getLinkedList()
-		{
-			return this.datastructure;
-		}
+	//Getters & setters
+	/**
+	 * @return The data structure used in the test
+	 */
+	public LinkedList<Integer> getLinkedList()
+	{
+		return this.datastructure;
+	}
 		
 	
 

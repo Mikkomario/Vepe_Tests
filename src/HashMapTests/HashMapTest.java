@@ -46,6 +46,12 @@ public abstract class HashMapTest extends AbstractTest
 		getMap().put(this.instancecount, this.instancecount);
 	}
 	
+	@Override
+	public void clearStructure()
+	{
+		getMap().clear();
+	}
+	
 	// GETTERS & SETTERS	----------------------------------------------
 	
 	/**
