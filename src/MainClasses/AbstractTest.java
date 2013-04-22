@@ -1,5 +1,8 @@
 package MainClasses;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * This is the main testing class that each test extends. The test runs a 
  * single method, increases the the number of instances in the data structure 
@@ -59,7 +62,7 @@ public abstract class AbstractTest
 	}
 	
 	// Prints the collected data to the system console
-	private void printData(int instancecount, long nanoseconds)
+	private static void printData(int instancecount, long nanoseconds)
 	{
 		System.out.println(instancecount + "#" + nanoseconds);
 	}
@@ -89,19 +92,20 @@ public abstract class AbstractTest
 		int iterations = 0;
 		boolean testrun = true;
 		int extrarunsleft = extraruns;
+		ArrayList<Integer> values = new ArrayList<Integer>();
 		
 		// I initialize the variables here already so that the memory 
 		// allocation doesn't affect the recorded time
 		long startnanos;
-		long runtime;
+		int runtime;
 		
 		// Increases the number of instances in the structure 
 		// to the start amount
 		addInstances(currentinstances);
 		
 		// Informs the user with a message
-		System.out.println("Starting the test\n" + getTestName() + " with " + 
-				maxiterations + " iterations\n");
+		System.out.println("Starting the test\n" + getTestName() + "\nWith " + 
+				maxiterations + " iterations and " + extraruns + " extra checks\n");
 		
 		// Also collecs suplemental data about the total time used in the test
 		long starttime = System.currentTimeMillis();
@@ -120,7 +124,7 @@ public abstract class AbstractTest
 			// Runs the method and checks the used processing time
 			startnanos = System.nanoTime();
 			runMethod();
-			runtime = System.nanoTime() - startnanos;
+			runtime = (int) (System.nanoTime() - startnanos);
 			
 			// The following parts are not made during the test run
 			if (testrun)
@@ -131,8 +135,13 @@ public abstract class AbstractTest
 			
 			totaltestingtime += runtime;
 			
-			// Prints the collected data
-			printData(currentinstances, runtime);
+			// If there were no extra runs,
+			// Simply prints the collected data
+			if (extraruns == 0)
+				printData(currentinstances, runtime);
+			// Otherwise simply collects the data
+			else
+				values.add(runtime);
 			
 			// Prepares fo the next iteration
 			iterations ++;
@@ -147,6 +156,14 @@ public abstract class AbstractTest
 			}
 			else if (extrarunsleft <= 0)
 			{
+				// If extraruns are used, produces the best value and prints it
+				if (extraruns > 0)
+				{
+					printData(currentinstances, produceValue(values));
+					// Also removes all collected data
+					values.clear();
+				}
+				
 				addInstances(currentinstances);
 				currentinstances *= 2;
 				extrarunsleft = extraruns;
@@ -171,16 +188,87 @@ public abstract class AbstractTest
 		clearStructure();
 	}
 	
-	// What to do?
-	/*
-	 * Prepare -methdod (Abs)
-	 * Add instance -method (Abs)
-	 * Add instances -method
-	 * Run method -method (Abs)
-	 * Run test -method
-	 * Print data method
-	 * 
-	 * Show current nanoseconds
-	 * Record the number of instances
-	 */
+	private static int produceValue(ArrayList<Integer> values)
+	{
+		// Calculates the average value
+		int average = getAverageValue(values);
+		//System.out.println("Average: " + average);
+		
+		// Finds and repairs the mistake values
+		removeMistakeValues(values, average);
+		
+		// Finds the most usual value
+		int mostusual = getMostUsualValue(values);
+		//System.out.println("Most usual: " + mostusual);
+		
+		// Returns the most usual value, if applicable
+		// Also, if average is within the mistake margin, returns the 
+		// Average since it's more accurate
+		if (mostusual != -1 && Math.abs(mostusual - average) > 5)
+			return mostusual;
+		
+		// Recalculates the average value and returns it
+		return getAverageValue(values);
+	}
+	
+	private static int getAverageValue(ArrayList<Integer> values)
+	{
+		int total = 0;
+		
+		for (int i = 0; i < values.size(); i++)
+		{
+			total += values.get(i);
+		}
+		
+		return total / values.size();
+	}
+	
+	// Removes the mistake values from the list
+	private static void removeMistakeValues(ArrayList<Integer> 
+			values, int averagevalue)
+	{
+		// Checks if there are any mistakes and removes them
+		// Mistake is concidered to be more than 90% larger than the average value
+		int i = 0;
+		while (i < values.size())
+		{
+			if (values.get(i) > 1.9*averagevalue)
+				values.remove(i);
+			else
+				i ++;
+		}
+	}
+	
+	// Returns the most usual value, -1 if one could not be found
+	// Creates 0-5 mistake because it rounds the values down to the nearest %5
+	private static int getMostUsualValue(ArrayList<Integer> values)
+	{
+		HashMap<Integer, Integer> valuenumbers = new HashMap<Integer, Integer>();
+		
+		// Calculates, how many of each value there are in the list (rounds down)
+		for (int value: values)
+		{
+			int roundvalue = value - value % 5;
+			
+			if (valuenumbers.containsKey(roundvalue))
+				valuenumbers.put(roundvalue, valuenumbers.get(roundvalue) +1);
+			else
+				valuenumbers.put(roundvalue, 1);
+		}
+		
+		int bestvalue = -1;
+		int bestfrekvens = 1;
+		
+		// Picks the rounded value that had the highest frekvens
+		for (int key: valuenumbers.keySet())
+		{
+			if (valuenumbers.get(key) > bestfrekvens)
+			{
+				bestvalue = key;
+				bestfrekvens = valuenumbers.get(key);
+			}
+		}
+		
+		return bestvalue;
+	}
 }
