@@ -46,6 +46,7 @@ public class MainTest
 	private ArrayList<AbstractTest> tests;
 	private int startinstancecount;
 	private int maxiterations;
+	private int extraruns;
 	
 	
 	// CONSTRUCTOR	-------------------------------------------------------
@@ -55,14 +56,17 @@ public class MainTest
 	 * 
 	 * @param startinstancecount How many instances does a data structure have 
 	 * in the beginning of the test?
-	 * @param maxiterates How many a method is called in a single test?
+	 * @param maxiterations How many times the number of instances is doubled?
+	 * @param extraruns How many extra times a method is called with the same amount of 
+	 * instances (>= 0)
 	 */
-	public MainTest(int startinstancecount, int maxiterates)
+	public MainTest(int startinstancecount, int maxiterations, int extraruns)
 	{
 		// Initializes the attributes
 		this.tests = new ArrayList<AbstractTest>();
 		this.startinstancecount = startinstancecount;
-		this.maxiterations = maxiterates;
+		this.maxiterations = maxiterations;
+		this.extraruns = extraruns;
 		
 		// Adds the necessary tests
 		// TODO: Add your tests here!
@@ -119,7 +123,7 @@ public class MainTest
 	{
 		for (AbstractTest test: this.tests)
 		{
-			test.runTest(this.startinstancecount, this.maxiterations);
+			test.runTest(this.startinstancecount, this.maxiterations, this.extraruns);
 			System.out.println("--------------------------------------------");
 		}
 	}
@@ -130,13 +134,19 @@ public class MainTest
 	/**
 	 * Runs all the tests in this class with the given arguments
 	 *
-	 * @param args There are two ways to give arguments:<br>
-	 * 1) Two arguments:<br>
+	 * @param args There are three ways to give arguments:<br>
+	 * 1) Three arguments:<br>
+	 * - 1: How many instances does a data structure have in the beginning of a 
+	 * test<br>
+	 * - 2: How many times a tested method is called with the same number of instances<br>
+	 * - 3: How many extra testruns are made with each instance count
+	 * (no more than 25 is recommended)<br>
+	 * 2) Two arguments:<br>
 	 * - 1: How many instances does a data structure have in the beginning of a 
 	 * test<br>
 	 * - 2: How many times a tested method is called in a single test 
 	 * (no more than 25 is recommended)<br>
-	 * 2) One argument:<br>
+	 * 3) One argument:<br>
 	 * - 1: How many times a tested method is called in a single test 
 	 * (no more than 25 is recommended)<p>
 	 * 
@@ -151,7 +161,8 @@ public class MainTest
 		*/
 		
 		int startinstancecount = 1;
-		int maxiterates = 22;
+		int maxiterations = 5;
+		int extraruns = 2;
 		
 		// Updates the values with the arguments given with the 
 		// method call (if any)
@@ -169,7 +180,7 @@ public class MainTest
 				System.exit(-1);
 			}
 			
-			// Normally the arguments are startcount and maxiterations
+			// Normally the first two arguments are startcount and maxiterations
 			if (args.length > 1)
 			{
 			int arg2 = 0;
@@ -187,17 +198,33 @@ public class MainTest
 				
 				// Updates the values
 				startinstancecount = arg1;
-				maxiterates = arg2;
+				maxiterations = arg2;
 			}
 			// When only one argument is present, it is considered maxiterations
 			else
 			{
-				maxiterates = arg1;
+				maxiterations = arg1;
+			}
+			
+			// Also tries to use the third argument if one is found
+			if (args.length > 2)
+			{	
+				try
+				{
+					// The third run represents the number of extra runs made
+					extraruns = Integer.parseInt(args[1]);
+				}
+				catch (NumberFormatException nfe)
+				{
+					System.err.println("Please give the second argument as " +
+							"an integer");
+					System.exit(-1);
+				}
 			}
 		}
 		
 		// Starts the actual test
-		MainTest test = new MainTest(startinstancecount, maxiterates);
+		MainTest test = new MainTest(startinstancecount, maxiterations, extraruns);
 		test.runTests();
 	}
 }

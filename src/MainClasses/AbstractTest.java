@@ -70,15 +70,25 @@ public abstract class AbstractTest
 	 * 
 	 * @param startinstancecount How many instances should the data structure 
 	 * hold in the beginning of the test?
-	 * @param maxiterations How many times the method will be run?
+	 * @param maxiterations How many times the instances are doubled?
+	 * @param extraruns How many extra iterations are made at once without adding 
+	 * additional instances?
 	 * 
 	 */
-	public void runTest(int startinstancecount, int maxiterations)
+	public void runTest(int startinstancecount, int maxiterations, int extraruns)
 	{
+		// Checks the parameters
+		if (startinstancecount < 0 || maxiterations <= 0 || extraruns < 0)
+		{
+			System.out.println("The test parameters must be 0 or above");
+			return;
+		}
+		
 		// Prepares the variables
 		int currentinstances = startinstancecount;
 		int iterations = 0;
 		boolean testrun = true;
+		int extrarunsleft = extraruns;
 		
 		// I initialize the variables here already so that the memory 
 		// allocation doesn't affect the recorded time
@@ -127,17 +137,25 @@ public abstract class AbstractTest
 			// Prepares fo the next iteration
 			iterations ++;
 			
+			// If no extra runs are left,
 			// Doubles the number of instances in the structure
 			// (adds one if there are currently 0 instances)
-			if (currentinstances != 0)
-			{
-				addInstances(currentinstances);
-				currentinstances *= 2;
-			}
-			else
+			if (currentinstances == 0)
 			{
 				addInstances(1);
 				currentinstances = 1;
+			}
+			else if (extrarunsleft <= 0)
+			{
+				addInstances(currentinstances);
+				currentinstances *= 2;
+				extrarunsleft = extraruns;
+			}
+			else
+			{
+				extrarunsleft --;
+				// Extrarun does not count as an iteration
+				iterations --;
 			}
 		}
 		
