@@ -160,9 +160,9 @@ public class MainTest
 		System.out.println(args[1] + " " + args[2]);
 		*/
 		
-		int startinstancecount = 1;
-		int maxiterations = 5;
-		int extraruns = 2;
+		int startinstancecount = 6000;
+		int maxiterations = 10;
+		int extraruns = 4;
 		
 		// Updates the values with the arguments given with the 
 		// method call (if any)

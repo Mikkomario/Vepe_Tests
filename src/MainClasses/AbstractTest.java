@@ -194,8 +194,15 @@ public abstract class AbstractTest
 		int average = getAverageValue(values);
 		//System.out.println("Average: " + average);
 		
-		// Finds and repairs the mistake values
-		removeMistakeValues(values, average);
+		// Finds and removes additional 0:s
+		// And recalculates the average value (if needed)
+		if (removeZeros(values, average))
+			average = getAverageValue(values);
+		
+		// Finds and removes too large values
+		// And recalculates the average value (if needed)
+		if (removeTooLargeValues(values, average))
+			average = getAverageValue(values);
 		
 		// Finds the most usual value
 		int mostusual = getMostUsualValue(values);
@@ -208,7 +215,7 @@ public abstract class AbstractTest
 			return mostusual;
 		
 		// Recalculates the average value and returns it
-		return getAverageValue(values);
+		return average;
 	}
 	
 	private static int getAverageValue(ArrayList<Integer> values)
@@ -223,10 +230,36 @@ public abstract class AbstractTest
 		return total / values.size();
 	}
 	
-	// Removes the mistake values from the list
-	private static void removeMistakeValues(ArrayList<Integer> 
+	// Removes the zero's from the list that would bug the system
+	private static boolean removeZeros(ArrayList<Integer> values, int averagevalue)
+	{
+		// Checks if there are any mistakes and removes them
+		// A zero in a list that has non-zero values is considered a mistake
+		
+		int instancesbeginning = values.size();
+		
+		if (averagevalue == 0)
+			return false;
+		
+		int i = 0;
+		while (i < values.size())
+		{
+			if (values.get(i) == 0)
+				values.remove(i);
+			else
+				i ++;
+		}
+		
+		return (values.size() != instancesbeginning);
+	}
+	
+	// Removes too large values from the list
+	// Returns if changes were made
+	private static boolean removeTooLargeValues(ArrayList<Integer> 
 			values, int averagevalue)
 	{
+		int instancesbeginning = values.size();
+		
 		// Checks if there are any mistakes and removes them
 		// Mistake is concidered to be more than 90% larger than the average value
 		int i = 0;
@@ -237,6 +270,8 @@ public abstract class AbstractTest
 			else
 				i ++;
 		}
+		
+		return (values.size() != instancesbeginning);
 	}
 	
 	// Returns the most usual value, -1 if one could not be found
